@@ -92,18 +92,6 @@ def search_dataagen(db):
     else:
         for data in results:
             print(data)
-            #print("Id Agen      : ", data[0])
-            #print("Nama Laundry : ", data[1])
-            #print("Nama Pemilik : ", data[2])
-            #print("No Telp.     : ", data[3])
-            #print("Email        : ", data[4])
-            #print("Kota         : ", data[5])
-            #print("Alamat       : ", data[6])
-            #print("Plat Driver  : ", data[7])
-            #print("Id harga     : ", data[8])
-            #print("Jenis Laundry: ", data[9])
-            #print("Id agen      : ", data[10])
-            #print("Harga        : ", data[11])
 
 
 # (di pesanan ini nanti akan diminta pilih agen, jenis paket, berat baju)
@@ -206,7 +194,6 @@ def search_datacucian(db):
 def tampilkan_harga(db):
     cursor = db.cursor()
     keyword = input("Kata kunci: ")
-    #sql = "SELECT cucian.id_cucian, cucian.jenis, cucian.berat, (cucian.berat * harga.harga) AS total_bayar FROM cucian JOIN harga ON cucian.id_agen = harga.id_agen WHERE id_cucian LIKE %s AND cucian.jenis = harga.jenis"
     sql = "SELECT cucian.id_cucian, cucian.id_agen, (cucian.berat * harga.harga) AS total_bayar FROM cucian JOIN harga ON cucian.id_agen = harga.id_agen WHERE id_cucian LIKE %s AND cucian.jenis = harga.jenis"
     val = ("%{}%".format(keyword),)
     cursor.execute(sql, val)
