@@ -78,7 +78,7 @@ def delete_dataagen(db):
 
 def search_dataagen(db):
     cursor = db.cursor()
-    keyword = input("Kata kunci: ")
+    keyword = input("Masukkan nama atau kota agen laundry: ")
     sql = "SELECT * FROM agen JOIN harga ON agen.id_agen = harga.id_agen WHERE nama_laundry LIKE %s OR kota LIKE %s"
     val = ("%{}%".format(keyword), "%{}%".format(keyword))
     cursor.execute(sql, val)
@@ -107,7 +107,7 @@ def insert_datapesanan(db):
 
 def show_datapesanan(db):
     cursor = db.cursor()
-    keyword = input("Kata kunci: ")
+    keyword = input("Masukkan id cucian: ")
     sql = "SELECT cucian.id_cucian, cucian.id_agen, agen.nama_laundry, cucian.jenis, cucian.berat, (cucian.berat * harga.harga) AS total_bayar FROM cucian JOIN harga ON cucian.id_agen = harga.id_agen JOIN agen ON harga.id_agen=agen.id_agen WHERE id_cucian LIKE %s AND cucian.jenis = harga.jenis"
     val = ("%{}%".format(keyword),)
     cursor.execute(sql, val)
@@ -168,7 +168,7 @@ def delete_datacucian(db):
 
 def search_datacucian(db):
     cursor = db.cursor()
-    keyword = input("Kata kunci: ")
+    keyword = input("Masukkan id cucian: ")
     sql = "SELECT * FROM cucian WHERE id_cucian LIKE %s"
     val = ("%{}%".format(keyword),)
     cursor.execute(sql, val)
@@ -183,7 +183,7 @@ def search_datacucian(db):
 
 def transaksi(db):
     cursor = db.cursor()
-    keyword = input("Kata kunci: ")
+    keyword = input("Masukkan id cucian: ")
     sql = "SELECT cucian.id_cucian, cucian.id_agen, (cucian.berat * harga.harga) AS total_bayar FROM cucian JOIN harga ON cucian.id_agen = harga.id_agen WHERE id_cucian LIKE %s AND cucian.jenis = harga.jenis"
     val = ("%{}%".format(keyword),)
     cursor.execute(sql, val)
