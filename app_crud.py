@@ -43,9 +43,6 @@ def show_dataagen(db):
             print("Kota         : ", data[4])
             print("Alamat       : ", data[5])
             print("Plat Driver  : ", data[6])
-            # for x in data:
-            # print(x)
-            # print(data)
 
 
 def update_dataagen(db):
@@ -94,7 +91,6 @@ def search_dataagen(db):
             print(data)
 
 
-# (di pesanan ini nanti akan diminta pilih agen, jenis paket, berat baju)
 def insert_datapesanan(db):
     cursor = db.cursor()
     id_agen = input("pilih id agen> ")
@@ -127,9 +123,6 @@ def show_datapesanan(db):
             print("Jenis        : ", data[3])
             print("Berat        : ", data[4])
             print("Total Bayar  : ", data[5])
-            # for x in data:
-            # print(x)
-            # print(data)
 
 
 def show_datacucian(db):
@@ -145,9 +138,6 @@ def show_datacucian(db):
             print("id Agen      : ", data[0])
             print("Jenis        : ", data[1])
             print("Berat        : ", data[2])
-            # for x in data:
-            # print(x)
-            # print(data)
 
 
 def update_datacucian(db):
@@ -203,7 +193,6 @@ def tampilkan_harga(db):
         print("Tidak ada data")
     else:
         for data in results:
-            # print(data)
             id_cucian = data[0]
             id_agen = data[1]
             total_bayar = data[2]
