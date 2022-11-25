@@ -178,7 +178,10 @@ def search_datacucian(db):
         print("Tidak ada data")
     else:
         for data in results:
-            print(data)
+            print("Id Cucian    : ", data[0])
+            print("Id Agen      : ", data[1])
+            print("Jenis        : ", data[2])
+            print("Berat        : ", data[3])
 
 
 def transaksi(db):
