@@ -142,7 +142,7 @@ def show_datacucian(db):
 
 def update_datacucian(db):
     cursor = db.cursor()
-    show_datapesanan(db)
+    show_datacucian(db)
     id_cucian = input("pilih id cucian> ")
     id_agen = input("Masukan id agen yang baru: ")
     jenis = input("Masukan jenis laundry yang baru: ")
@@ -222,7 +222,7 @@ def show_menu(db):
     print("8.  Update Data Cucian")
     print("9.  Hapus Data Cucian")
     print("10. Cari Data Cucian")
-    print("11. Melakukan Transaksi")
+    print("11. Transaksi")
     print("0.  Keluar")
     print("------------------")
     menu = input("Pilih menu> ")
