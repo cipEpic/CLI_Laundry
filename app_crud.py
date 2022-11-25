@@ -229,7 +229,7 @@ def tampilkan_harga(db):
 
 
 def show_menu(db):
-    print("=== APLIKASI DATABASE PYTHON ===")
+    print("=== APLIKASI DATABASE PYTHON LAUNDRYKU ===")
     print("1.  Insert Data Agen")
     print("2.  Tampilkan Data Agen")
     print("3.  Update Data Agen")
