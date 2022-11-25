@@ -25,6 +25,17 @@ def insert_agen(db):
     db.commit()
     print("{} data berhasil disimpan".format(cursor.rowcount))
 
+    jenis = input("Masukan nama laundry: ")
+    id_agen = input("Masukan nama pemilik: ")
+    harga = input("Masukan nomer telepon: ")
+
+    val = (jenis, id_agen, harga)
+    cursor = db.cursor()
+    sql = "INSERT INTO harga (jenis, id_agen, harga) VALUES (%s, %s, %s)"
+    cursor.execute(sql, val)
+    db.commit()
+    print("{} data berhasil disimpan".format(cursor.rowcount))
+
 
 def show_dataagen(db):
     cursor = db.cursor()
