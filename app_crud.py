@@ -181,7 +181,7 @@ def search_datacucian(db):
             print(data)
 
 
-def tampilkan_harga(db):
+def transaksi(db):
     cursor = db.cursor()
     keyword = input("Kata kunci: ")
     sql = "SELECT cucian.id_cucian, cucian.id_agen, (cucian.berat * harga.harga) AS total_bayar FROM cucian JOIN harga ON cucian.id_agen = harga.id_agen WHERE id_cucian LIKE %s AND cucian.jenis = harga.jenis"
@@ -202,6 +202,12 @@ def tampilkan_harga(db):
             cursor.execute(sql, val)
             db.commit()
             print("{} data berhasil disimpan".format(cursor.rowcount))
+
+    sql = "DELETE FROM cucian WHERE id_cucian LIKE %s"
+    val = ("%{}%".format(keyword),)
+    cursor.execute(sql, val)
+    db.commit()
+    print("{} data berhasil dihapus".format(cursor.rowcount))
 
 
 def show_menu(db):
@@ -245,7 +251,7 @@ def show_menu(db):
     elif menu == "10":
         search_datacucian(db)
     elif menu == "11":
-        tampilkan_harga(db)
+        transaksi(db)
     elif menu == "0":
         exit()
     else:
